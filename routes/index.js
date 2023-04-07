@@ -17,13 +17,12 @@ router.get("/movies", async (req, res) => {
 });
 
 router.get("/movie-detail/:id", async (req, res) => {
-  const movieId = req.params.id;
   try {
-    const movie = await MovieModel.findById(movieId);
-    res.render("movie-details", { movie });
-  } catch (error) {
-    console.error("Error fetching movie details:", error);
-    res.status(500).send("Error fetching movie details");
+    const movie = await MovieModel.findById(req.params.id);
+    res.render("movie-detail", { movie });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("There was an error on the server! Check the console!");
   }
 });
 
