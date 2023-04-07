@@ -1,0 +1,22 @@
+<h2>Ironflex</h2>
+<h3>Pick the one you want!</h3>
+<div class="movies-container">
+  <ul>
+    {{#each movies}}
+      <li>
+        <img src="{{this.image}}" alt="{{this.title}}" />
+        <h2>Title: {{this.title}}</h2>
+        <h3>Director: {{this.director}}</h3>
+        <h4>Stars: {{this.stars}}</h4>
+        <a href="/movie-detail/{{this._id}}">See More</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+{{! title: String,
+    director: String,
+    stars: [String],
+    image: String,
+    description: String,
+    showtimes: [String] }}
